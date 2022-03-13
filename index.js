@@ -1,14 +1,10 @@
 import express from "express";
-import cors from "cors";
 import { Telegraf } from "telegraf";
-import LocalSession from "telegraf-session-local";
 import Weather from "./controllers/weather.js";
 import Rate from "./controllers/rate.js";
 import Middle from "./controllers/middle.js";
 import "dotenv/config";
 
-const PORT = process.env.PORT || 5000;
-const app = express();
 const bot = new Telegraf(process.env.BOT_TOKEN);
 // app.use(express.json())
 // app.use(cors({ origin: "*", credentials: true }));
