@@ -6,8 +6,10 @@ import Middle from "./controllers/middle.js";
 import "dotenv/config";
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
-// app.use(express.json())
-// app.use(cors({ origin: "*", credentials: true }));
+const app = express()
+const PORT = process.env.PORT || 5000;
+
+
 
 // const localSession = new LocalSession()
 
@@ -18,6 +20,7 @@ bot.telegram.setMyCommands([
 ]);
 
 const start = async () => {
+
   try {
     bot.on("message", (msg) => {
       const text = msg.message.text;
@@ -72,10 +75,10 @@ const start = async () => {
         bot.telegram.sendMessage(chatID, `Sorry!`);
       }
     });
-    // app.listen(PORT, console.log(`Server started on port ${PORT}`));
+    app.listen(PORT, console.log(`Server started on port ${PORT}`));
     bot.launch();
   } catch (error) {
-    bot.telegram.sendMessage(chatID, `Sorry happened error!`);
+    // bot.telegram.sendMessage(chatID, `Sorry happened error!`);
   }
 };
 
