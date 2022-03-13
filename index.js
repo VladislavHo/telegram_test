@@ -10,8 +10,8 @@ import "dotenv/config";
 const PORT = process.env.PORT || 5000;
 const app = express();
 const bot = new Telegraf(process.env.BOT_TOKEN);
-app.use(express.json())
-app.use(cors({ origin: "*", credentials: true }));
+// app.use(express.json())
+// app.use(cors({ origin: "*", credentials: true }));
 
 // const localSession = new LocalSession()
 
@@ -76,7 +76,7 @@ const start = async () => {
         bot.telegram.sendMessage(chatID, `Sorry!`);
       }
     });
-    app.listen(PORT, console.log(`Server started on port ${PORT}`));
+    // app.listen(PORT, console.log(`Server started on port ${PORT}`));
     bot.launch();
   } catch (error) {
     bot.telegram.sendMessage(chatID, `Sorry happened error!`);
